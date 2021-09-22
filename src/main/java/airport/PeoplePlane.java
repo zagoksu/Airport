@@ -28,15 +28,6 @@ public class PeoplePlane extends Airplane{
         System.out.println("Airplane " + identification + " discharges " + amount + " passengers.");
     }
 
-
-    public String getIdentification() {
-        return identification;
-    }
-
-    public void setIdentification(String identification) {
-        this.identification = identification;
-    }
-
     public long getMaxNumOfPassengers() {
         return maxNumOfPassengers;
     }
@@ -51,22 +42,6 @@ public class PeoplePlane extends Airplane{
 
     public void setCurrentNumOfPassengers(long currentNumOfPassengers) {
         this.currentNumOfPassengers = currentNumOfPassengers;
-    }
-
-    public boolean isFlying() {
-        return isFlying;
-    }
-
-    public void setFlying(boolean flying) {
-        isFlying = flying;
-    }
-
-    public double getCruiseSpeed() {
-        return cruiseSpeed;
-    }
-
-    public void setCruiseSpeed(double cruiseSpeed) {
-        this.cruiseSpeed = cruiseSpeed;
     }
 
     @Override

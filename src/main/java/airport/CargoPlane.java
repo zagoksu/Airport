@@ -24,6 +24,14 @@ public class CargoPlane extends Airplane{
         System.out.println("Airplane " + identification + " unloads " + amount + " tons of cargo.");
     }
 
+    public long getCargoCapacity() {
+        return cargoCapacity;
+    }
+
+    public void setCargoCapacity(long cargoCapacity) {
+        this.cargoCapacity = cargoCapacity;
+    }
+
     @Override
     public String toString() {
         return "CargoPlane{" +

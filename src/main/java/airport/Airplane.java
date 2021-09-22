@@ -46,10 +46,6 @@ public abstract class Airplane {
         return identification;
     }
 
-    public void setIdentification(String identification) {
-        this.identification = identification;
-    }
-
     public boolean isFlying() {
         return isFlying;
     }
