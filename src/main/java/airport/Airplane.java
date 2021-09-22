@@ -1,6 +1,6 @@
 package airport;
 
-public class Airplane {
+public abstract class Airplane {
 
     protected String identification;
     protected boolean isFlying;
@@ -37,6 +37,10 @@ public class Airplane {
         }
     }
 
+    protected abstract void load(long amount);
+
+    protected abstract void unload(long amount);
+
 
     public String getIdentification() {
         return identification;
@@ -62,7 +66,23 @@ public class Airplane {
         this.cruiseSpeed = cruiseSpeed;
     }
 
+    public String getType() {
+        return type;
+    }
 
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        return "Airplane{" +
+                "identification='" + identification + '\'' +
+                ", isFlying=" + isFlying +
+                ", cruiseSpeed=" + cruiseSpeed +
+                ", type='" + type + '\'' +
+                '}';
+    }
 }
 
 

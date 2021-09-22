@@ -7,23 +7,34 @@ public class Airport {
 
     public Airport(String name, Airplane[] airplanes) {
         this.name = name;
-        this.airplanes = new Airplane[]{new PeoplePlane("XYZ123", 100, 40, true, 500),
-                new PeoplePlane("EEE666", 150, 105, false, 0),
-                new PeoplePlane("ZZZ777", 150, 125, false, 0)};
+        this.airplanes = new Airplane[airplanes.length];
+        for (int i = 0; i < airplanes.length; i++){
+            this.airplanes[i] = airplanes[i];
+        }
     }
 
     public Airport() {
     }
 
-    public void getAircraftNames(){
+    public void getPassengerPlanes(){
+        System.out.println("Passenger planes from airport Eindhoven:");
         for(Airplane airplane: airplanes){
-            System.out.println("Airplane " + airplane.getIdentification());
+            if(airplane.getType()=="People")
+            System.out.println("Passenger Plane " + airplane.getIdentification());
         }
     }
 
-    public void requestPeoplePlane(){
+    public void getCargoPlanes(){
+        System.out.println("Cargo planes from airport Eindhoven:");
+        for(Airplane airplane: airplanes){
+            if(airplane.getType()=="Cargo")
+                System.out.println("Cargo Plane " + airplane.getIdentification());
+        }
+    }
+
+    public void requestPassengerPlane(){
         for (Airplane airplane: airplanes){
-            if (!airplane.isFlying())
+            if (!airplane.isFlying() && airplane.getType() == "People")
             System.out.println("Airplane " + airplane.getIdentification() + " requested. Is not flying, still room for " + ( ((PeoplePlane) airplane).getMaxNumOfPassengers() - ((PeoplePlane) airplane).getCurrentNumOfPassengers()) + " passengers." );
         }
     }

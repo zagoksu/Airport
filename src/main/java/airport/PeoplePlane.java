@@ -12,38 +12,20 @@ public class PeoplePlane extends Airplane{
     }
 
 
-    public void loadPassengers(long passengers){
-
-        if(passengers <= maxNumOfPassengers){
-            System.out.println("Airplane " + this.identification + " charges " + passengers + " passengers.");
-            currentNumOfPassengers += passengers;
+    @Override
+    protected void load(long amount) {
+        if(amount <= maxNumOfPassengers){
+            System.out.println("Airplane " + this.identification + " charges " + amount + " passengers.");
+            currentNumOfPassengers += amount;
         }else{
-            System.out.println("Airplane " + this.identification + " charges " + maxNumOfPassengers + " passengers," + (passengers - maxNumOfPassengers) + " do not fit.");
-        }
-
-    }
-
-    public void unloadPassengers(long passengers){
-        currentNumOfPassengers -= passengers;
-        System.out.println("Airplane " + identification + " discharges " + passengers + " passengers.");
-    }
-
-    public void takeOff(){
-        if (!isFlying()){
-            this.isFlying = true;
-            System.out.println("Airplane " + this.identification + " takes off.");
-        } else {
-            System.out.println("Airplane " + this.identification + " can not take off, because we are already flying.");
+            System.out.println("Airplane " + this.identification + " charges " + maxNumOfPassengers + " passengers," + (amount - maxNumOfPassengers) + " do not fit.");
         }
     }
 
-    public void lands(){
-        if (isFlying()){
-            this.isFlying = false;
-            System.out.println("Airplane " + this.identification + " lands.");
-        } else {
-            System.out.println("Airplane " + this.identification + " can not land, because we are still on the ground.");
-        }
+    @Override
+    protected void unload(long amount) {
+        currentNumOfPassengers -= amount;
+        System.out.println("Airplane " + identification + " discharges " + amount + " passengers.");
     }
 
 
@@ -87,7 +69,16 @@ public class PeoplePlane extends Airplane{
         this.cruiseSpeed = cruiseSpeed;
     }
 
-
+    @Override
+    public String toString() {
+        return "PeoplePlane{" +
+                "identification='" + identification + '\'' +
+                ", isFlying=" + isFlying +
+                ", cruiseSpeed=" + cruiseSpeed +
+                ", maxNumOfPassengers=" + maxNumOfPassengers +
+                ", currentNumOfPassengers=" + currentNumOfPassengers +
+                '}';
+    }
 }
 
 
